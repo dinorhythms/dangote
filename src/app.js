@@ -4,7 +4,7 @@ import logger from 'morgan';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-// import v1 from './routes/index';
+import v1 from './routes/index';
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //cors
 app.use(cors());
 
-// app.use('/api/v1', v1);
+app.use('/api/v1', v1);
 
 app.use('/notFound',(req,res)=>res.send("Not found"))
 

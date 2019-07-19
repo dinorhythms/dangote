@@ -13,7 +13,7 @@ exports.up = async function(knex) {
         table.string('state').notNullable();
         table.string('postal_code').notNullable();
         table.string('country').notNullable();
-        table.string('profile_picture').notNullable();
+        table.string('profile_picture').nullable();
         table.foreign('role_id').references('roles.id').onDelete('CASCADE').onUpdate('CASCADE')
         table.timestamps();
       })

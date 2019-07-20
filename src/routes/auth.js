@@ -1,6 +1,6 @@
 import express from 'express';
 import authController from '../controllers/authController';
-// import userRouteAuth from '../middlewares/auth';
+import { userRouteAuth } from '../middlewares/auth';
 
 import { signinValidator, signupValidator, validatorFn } from '../middlewares/validators'
 
@@ -19,6 +19,6 @@ auth.post('/signin', [signinValidator, validatorFn] , authController.signIn);
 // @route   GET api/v1/auth/user
 // @desc    Get User data
 // @access  Private
-// auth.get('/user', userRouteAuth, authController.user);
+auth.get('/user', userRouteAuth, authController.user);
 
 export default auth;

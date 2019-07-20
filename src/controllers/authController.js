@@ -120,6 +120,26 @@ class authController {
             })
     }
 
+    static async user(req,res){
+
+        const userId = req.user.id;
+
+        //check get user by id
+        await userModel.where({id:userId}).fetch({columns: ['id', 'email', 'phone', 'first_name', 'last_name', 'role_id']})
+            .then(data=>{
+                const user = data.toJSON(data)
+                // const user = await userModel.getUserById(userId);
+                if(user) return res.status(200).json({status:'success', data: {
+                    user_id: user.id,
+                    email: user.email,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                    is_admin: user.role_id
+                }})
+            })
+       
+    }
+
 }
 
 export default authController;

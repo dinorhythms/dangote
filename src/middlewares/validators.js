@@ -14,6 +14,13 @@ export const signupValidator = [
     check('postal_code', 'Postal Code is not valid').not().isEmpty().custom(value => !/\s/.test(value)),
 ]
 
+// SIGNIN
+export const signinValidator = [
+    check('email', 'Your email is not valid').not().isEmpty().isEmail(),
+    check('password', 'Your password is not valid').not().isEmpty()
+]
+
+
 export function validatorFn(req, res, next) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

@@ -80,6 +80,46 @@ class authController {
             })
     }
 
+    static async signIn(req,res){
+        const { email, password } = req.body;
+
+        //check if user exists
+        await userModel
+            .where({email})
+            .fetch({columns: ['id', 'email', 'password', 'first_name', 'last_name']})
+            .then(data=>{
+                if(!data) return res.status(400).json({status:'error', error: "User does not exist"})
+                const user = data.toJSON();
+                //validate the password
+                bcrypt.compare(password, user.password)
+                    .then((isMatch) => {
+
+                        if(!isMatch) return res.status(400).json({status:'error', error: "Invalid Credentials"})
+                        
+                        jwt.sign(
+                            { id: user.id },
+                            process.env.TOKEN_SECRET,
+                            { expiresIn: 86400000 },
+                            (err, token) => {
+                                if(err) throw err;
+                                res.status(200).json({
+                                    status: 'success',
+                                    data: {
+                                        user_id: user.id,
+                                        is_admin: user.is_admin,
+                                        token: token,
+                                        email: user.email,
+                                        first_name: user.first_name,
+                                        last_name: user.last_name
+                                    }
+                                })
+                            }
+                        )
+
+                    })
+            })
+    }
+
 }
 
 export default authController;

@@ -1,7 +1,7 @@
 import bookshelf from '../db/bookshelf';
 
-const serviceType = bookshelf.Model.extend({
+const ServiceType = bookshelf.Model.extend({
     tableName: 'servicetypes'
 });
   
-export default serviceType;
+export default ServiceType;

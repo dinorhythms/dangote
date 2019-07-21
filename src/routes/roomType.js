@@ -1,7 +1,6 @@
 import express from 'express';
 import roomTypeController from '../controllers/roomTypeController';
 import { hrRouteAuth } from '../middlewares/auth';
-import { signupValidator, validatorFn } from '../middlewares/validators'
 
 const roomType = express.Router();
 

@@ -20,11 +20,11 @@ app.use(cors());
 
 app.use('/api/v1', v1);
 
-app.use('/notFound',(req,res)=>res.send("Not found"))
+app.use('/notFound',(req,res)=>res.send("Route Not found"))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    var err = new Error('Route Not Found');
     err.status = 404;
     next(err);
 });

@@ -49,7 +49,8 @@ class authController {
                         //register user
                         userModel.forge({...newUser}).save()
                             .then((savedUser) => {
-
+                                savedUser = savedUser.toJSON();
+                                
                                 // create Token
                                 jwt.sign(
                                     { id: savedUser.id },
@@ -61,7 +62,7 @@ class authController {
                                             status: 'success',
                                             data: {
                                                 user_id: savedUser.id,
-                                                role: savedUser.role,
+                                                role: savedUser.role_id,
                                                 token: token,
                                                 email: savedUser.email,
                                                 first_name: savedUser.first_name,
@@ -106,7 +107,7 @@ class authController {
                                     status: 'success',
                                     data: {
                                         user_id: user.id,
-                                        is_admin: user.is_admin,
+                                        role: user.role_id,
                                         token: token,
                                         email: user.email,
                                         first_name: user.first_name,

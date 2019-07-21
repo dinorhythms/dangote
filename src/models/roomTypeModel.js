@@ -1,7 +1,7 @@
 import bookshelf from '../db/bookshelf';
 
-const roomType = bookshelf.Model.extend({
+const RoomType = bookshelf.Model.extend({
     tableName: 'roomtypes'
 });
   
-export default roomType;
+export default RoomType;

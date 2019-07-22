@@ -7,6 +7,8 @@ import roomType from './roomType';
 import room from './room';
 import serviceType from './serviceType';
 import service from './service';
+import reservation from './reservation';
+import hrreservation from './hrreservation';
 
 const v1 = express.Router();
 
@@ -17,5 +19,7 @@ v1.use('/roomtype', roomType);
 v1.use('/room', room);
 v1.use('/servicetype', serviceType);
 v1.use('/service', service);
+v1.use('/reservation', reservation);
+v1.use('/hrreservation', hrreservation);
 
 export default v1;

@@ -165,7 +165,7 @@ class reservationController {
         const { reservation_id } = req.params;
         const hr_user_id = req.user.id;
 
-        const { user_id, hr_user_id, receptionist_user_id, approved, cancelled } = req.body;
+        const { user_id, receptionist_user_id, approved, cancelled } = req.body;
 
         if (!room_id || !user_id || !start_date || !end_date || !comment) {
             return res.status(400).json({ status: 'error', error: "All fields are required to register reservation" })

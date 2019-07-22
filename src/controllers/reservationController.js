@@ -36,7 +36,7 @@ class reservationController {
 
     static async create(req, res) {
 
-        const { room_id, user_id, start_date, end_date, comment } = req.body;
+        const { room_id, start_date, end_date, comment } = req.body;
         const user_id = req.user.id;
 
         if (!room_id || !start_date || !end_date || !comment) {

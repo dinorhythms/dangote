@@ -9,6 +9,7 @@ import serviceType from './serviceType';
 import service from './service';
 import reservation from './reservation';
 import hrreservation from './hrreservation';
+import receptionreservation from './receptionreservation';
 
 const v1 = express.Router();
 
@@ -21,5 +22,6 @@ v1.use('/servicetype', serviceType);
 v1.use('/service', service);
 v1.use('/reservation', reservation);
 v1.use('/hrreservation', hrreservation);
+v1.use('/receptionreservation', receptionreservation);
 
 export default v1;

@@ -8,9 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src --out-dir dist --copy-files",
     "clean": "rm -rf dist && mkdir dist",
-    "heroku-postbuild": "npm run clean && npm run build",
+    "frontbuild": "npm build --prefix frontend",
+    "heroku-postbuild": "npm run clean && npm run build && npm run frontbuild",
     "start": "node dist/app.js",
-    "start:dev": "nodemon --exec babel-node src/app.js"
+    "start:dev": "concurrently \"nodemon --exec babel-node src/app.js\" \"npm start --prefix frontend\" "
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "@babel/preset-env": "^7.5.4",
     "@babel/register": "^7.4.4",
     "babel-eslint": "^10.0.2",
+    "concurrently": "^4.1.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.0",

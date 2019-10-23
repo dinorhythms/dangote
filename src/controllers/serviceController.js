@@ -137,7 +137,7 @@ class serviceController {
     static async guestAll(req,res){
         const guest_id  =  req.user.id
         //check get all
-        const data = await serviceReservationModel.where({guest_id}).fetchAll()
+        const data = await serviceReservationModel.where({guest_id}).fetchAll({ withRelated: ['service'] })
         if(data){
             const services = data.toJSON(data)
             if(services) return res.status(200).json({status:'success', data:services })

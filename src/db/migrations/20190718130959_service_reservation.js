@@ -16,6 +16,7 @@ exports.up = async function(knex) {
         table.integer('approved').defaultTo(0);
         table.integer('cancelled').defaultTo(0);
         table.string('comment');
+        table.string('price');
         table.timestamps();
       })
 };

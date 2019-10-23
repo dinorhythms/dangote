@@ -2,7 +2,7 @@
   "name": "dangote",
   "version": "1.0.0",
   "description": "Dangote Guest House",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "lint": "eslint -- --init",
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -16,12 +16,3 @@ exports.up = async function(knex) {
 exports.down = async function(knex) {
     await knex.schema.dropTableIfExists('staffs');
 };
-
-// staffs
-// ==========
-// id
-// user_id
-// employee_number
-// department_id
-// position
-// joined

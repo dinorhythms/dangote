@@ -157,7 +157,7 @@ class serviceController {
         }
 
         //check get by id
-        const data = await serviceReservationModel.where({id: service_id, guest_id}).fetch()
+        const data = await serviceReservationModel.where({id: service_id, guest_id}).fetch({ withRelated: ['service'] })
         if(!data) return res.status(400).json({status:'error', error: "service with id could not be found"})
         const service = data.toJSON(data)
         if(service) return res.status(200).json({status:'success', data:service })

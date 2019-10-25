@@ -14,11 +14,3 @@ exports.up = async function(knex) {
 exports.down = async function(knex) {
     await knex.schema.dropTableIfExists('servicetypes');
 };
-
-// servicetypes
-// ============
-// id
-// service_name 
-// description
-// department_id
-// service_type = meal/iron/

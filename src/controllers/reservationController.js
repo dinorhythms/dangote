@@ -25,7 +25,7 @@ class reservationController {
     }
 
     // check get by id
-    await reservationModel.where({ user_id: userId, id: reservation_id }).fetch()
+    await reservationModel.where({ user_id: userId, id: reservation_id }).fetch({ withRelated: ['room'] })
       .then((data) => {
         if (!data) return res.status(400).json({ status: 'error', error: 'reservation with id not found' });
         const reservation = data.toJSON(data);

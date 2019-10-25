@@ -16,13 +16,3 @@ exports.up = async function(knex) {
 exports.down = async function(knex) {
     await knex.schema.dropTableIfExists('guests');
 };
-
-// guests
-// ==========
-// id
-// user_id
-// dob
-// international_passport
-// drivers_lisence
-// car_brand
-// rating

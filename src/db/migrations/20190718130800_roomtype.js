@@ -13,11 +13,3 @@ exports.up = async function(knex) {
 exports.down = async function(knex) {
     await knex.schema.dropTableIfExists('roomtypes');
 };
-
-// roomtypes
-// =========
-// id
-// name
-// price
-// description
-// features

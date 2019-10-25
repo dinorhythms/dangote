@@ -1,4 +1,3 @@
-
 exports.up = async function(knex) {
     await knex.schema.createTable('guest_complaints', function (table) {
         table.increments('id').unsigned().primary();
@@ -13,10 +12,3 @@ exports.up = async function(knex) {
 exports.down = async function(knex) {
     await knex.schema.dropTableIfExists('guest_complaints');
 };
-
-// guest_complaints
-// ==================
-// id
-// user_id
-// heading
-// details

@@ -28,22 +28,3 @@ exports.up = async function(knex) {
 exports.down = async function(knex) {
     await knex.schema.dropTableIfExists('reservations');
 };
-
-// reservations
-// ===========
-// id
-// room_id
-// user_id
-// hrmanager_id
-// receptionist = null
-// booked_date
-// start_date
-// end_date
-// checked_in_date = null
-// checkout_date = null
-
-// processed
-// approved = true/false
-// paid = true/false
-// canceled =true/false
-// comments

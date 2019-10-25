@@ -24,12 +24,3 @@ exports.up = async function(knex) {
 exports.down = async function(knex) {
     await knex.schema.dropTableIfExists('service_reservations');
 };
-
-// service_reservations
-// =================
-// id
-// service_id
-// guest_id
-// receptionist_user_id
-// assigned_staff_id
-// paid = true/false

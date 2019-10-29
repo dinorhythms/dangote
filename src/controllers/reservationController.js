@@ -7,7 +7,7 @@ class reservationController {
     const userId = req.user.id;
 
     // check get all
-    await reservationModel.where({ user_id: userId }).fetchAll({ withRelated: ['room'] })
+    await reservationModel.where({ user_id: userId }).fetchAll({ withRelated: ['room.roomtype'] })
       .then((data) => {
         const reservations = data.toJSON(data);
         if (reservations) return res.status(200).json({ status: 'success', data: reservations });

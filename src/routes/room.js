@@ -7,12 +7,12 @@ const room = express.Router();
 // @route   GET api/v1/room/:room_id
 // @desc    User get room by id
 // @access  Private
-room.get('/', hrRouteAuth, roomController.index);
+room.get('/', roomController.index);
 
 // @route   GET api/v1/room/:room_id
 // @desc    User get room by id
 // @access  Private
-room.get('/:room_id', hrRouteAuth, roomController.roomById);
+room.get('/:room_id', roomController.roomById);
 
 // @route   POST  api/v1/room/
 // @desc    create room
